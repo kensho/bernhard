@@ -172,7 +172,7 @@ class Event(object):
         elif name in set(f.name for f in pb.Event.DESCRIPTOR.fields):
             setattr(self.event, name, value)
         else:
-            setattr(self, name, value)
+            object.__setattr__(self, name, value)
 
     def __str__(self):
         return str(self.event)
