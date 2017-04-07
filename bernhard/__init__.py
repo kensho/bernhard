@@ -170,9 +170,9 @@ class Event(object):
             else:
                 raise TypeError("'attributes' parameter must be type 'dict'")
         elif name in set(f.name for f in pb.Event.DESCRIPTOR.fields):
-            object.__setattr__(self.event, name, value)
+            setattr(self.event, name, value)
         else:
-            object.__setattr__(self, name, value)
+            setattr(self, name, value)
 
     def __str__(self):
         return str(self.event)
