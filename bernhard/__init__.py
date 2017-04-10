@@ -199,7 +199,7 @@ class Message(object):
 
     def __setattr__(self, name, value):
         if name in set(f.name for f in pb.Msg.DESCRIPTOR.fields):
-            object.__setattr__(self.message, name, value)
+            setattr(self.message, name, value)
         else:
             object.__setattr__(self, name, value)
 
